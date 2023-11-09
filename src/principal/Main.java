@@ -10,6 +10,7 @@ public class Main {
 		fm.setVisible(true);
 		fm.setResizable(false);
 		fm.setBackground(Color.BLACK);
+		System.out.println("el cambio");
 	}
 
 }

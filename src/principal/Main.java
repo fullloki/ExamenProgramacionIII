@@ -9,7 +9,6 @@ public class Main {
 		fm.setSize(1050, 590);
 		fm.setVisible(true);
 		fm.setResizable(false);
-		fm.setBackground(Color.BLACK);
 	}
 
 }

@@ -10,5 +10,4 @@ public class Main {
 		fm.setVisible(true);
 		fm.setResizable(false);
 	}
-
 }

@@ -4,6 +4,7 @@ import javax.swing.*;
 public class Product1 extends JPanel{
 	public Product1() {
 		setLayout(null);
-		setBackground(Color.RED);
+		setBackground(null);
+		setBorder(BorderFactory.createLineBorder(Color.WHITE));
 	}
 }

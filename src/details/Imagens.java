@@ -21,6 +21,7 @@ public class Imagens {
 	public int getHeight() {
 		return height;
 	}
+	//CAMBIAR DIRECCION DE RUTA DE IMAGEN
 	public ImageIcon imagen() {
 		ImageIcon png1 = new ImageIcon("C:\\Users\\HomeWork\\OneDrive\\tareas de asbel\\JAVA\\Proyecto-JAVA\\img\\"+getImgName());
 		ImageIcon img = new ImageIcon(png1.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));

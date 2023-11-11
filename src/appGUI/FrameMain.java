@@ -62,14 +62,14 @@ public class FrameMain extends JFrame{
 		jpContent = new JPanel();
 		jpContent.setBounds(0, 100, 1050, 490);
 		SectionProducts sp = new SectionProducts();
-		showPanel(sp);
+		showSection(sp);
 		jpHeader.setBackground(Color.BLACK);
 		jpContent.setBackground(Color.BLACK);
 		//====================================== agragando paneles al frame
 		this.add(jpHeader);
 		this.add(jpContent);
 	}
-	public void showPanel(JPanel p){
+	public void showSection(JPanel p){
 		jpContent.setLayout(null);
 		p.setBounds(0, 0, 1050, 400);
 		jpContent.removeAll();

@@ -17,13 +17,6 @@ public class Colors {
 		jbtn.setFont(new Font("Arial Black",Font.PLAIN,11));
 		jbtn.setBorder(new RoundedBorder(12,Color.WHITE,2.5f));
 	}
-	//ESTILO DE LOS BOTONES DE LA SECCION DE MENU
-	public void MenuButtonStyle(JButton jbtn) {
-		jbtn.setBackground(null);
-		jbtn.setForeground(new Color(166,166,166));
-		jbtn.setFont(new Font("Times New Roman",Font.BOLD,18));
-		jbtn.setBorder(new RoundedBorder(12,Color.DARK_GRAY,1.0f));
-	}
 	//ESTILO DE FUENTE DE ENCABEZADO, SECCION DE PRODUCTOS 
 	public void fontProductsH1(JLabel jlabel) {
 		jlabel.setBounds(65, 25, 500, 50);
@@ -49,11 +42,27 @@ public class Colors {
 		jta.setForeground(Color.white);
 		jta.setBounds(155, 60, 195, 90);
     }
-	//
+	//ESTILO DE FUENTE PRECIO, SECCION DE CUPONES
     public void price(JLabel price) {
     	price.setHorizontalAlignment(SwingConstants.CENTER);
 		price.setFont(new Font("Aptos", Font.BOLD, 35));
 		price.setForeground(Color.white);
 		price.setBounds(150, 0, 145, 40);
+    }
+	//ESTILO DE LOS BOTONES DE LA SECCION DE MENU
+	public void MenuButtonStyle(JButton jbtn) {
+		jbtn.setBackground(null);
+		jbtn.setForeground(new Color(166,166,166));
+		jbtn.setFont(new Font("Times New Roman",Font.BOLD,18));
+		jbtn.setBorder(new RoundedBorder(12,Color.DARK_GRAY,1.0f));
+	}
+    public void ItemLabels(JLabel jl) {
+    	jl.setForeground(Color.WHITE);
+    	jl.setFont(new Font("Times New Roman",Font.BOLD,18));
+    }
+    public void ItemTextArea(JTextArea jta) {
+    	jta.setBackground(null);
+    	jta.setForeground(Color.GRAY);
+    	jta.setFont(new Font("Times New Roman",Font.PLAIN,18));
     }
 }

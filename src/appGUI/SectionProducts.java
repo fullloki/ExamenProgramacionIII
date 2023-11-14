@@ -6,11 +6,10 @@ import events.*;
 public class SectionProducts extends JPanel{
 	private JButton jbBuy,jbMenu,jbPrev,jbNext;
 	private JPanel jpProducts;
-	SectionProducts(){
+	public SectionProducts(){
 		setLayout(null);
 		setBackground(Color.BLACK);
 		jbBuy = new JButton("COMPRAR");
-		jbBuy.getHorizontalTextPosition();
 		jbMenu = new JButton("MENU");
 		jbPrev = new JButton("prev");
 		jbNext = new JButton("next");
@@ -39,9 +38,12 @@ public class SectionProducts extends JPanel{
 		add(jbPrev);
 		add(jbNext);
 		add(jpProducts);
-		//EVENTOS DE BOTONES NEXT Y PREV
+		//AGREGANDO EVENTOS
 		SlideEvent slide = new SlideEvent(jpProducts);
 		jbNext.addActionListener(slide);
 		jbPrev.addActionListener(slide);
+		FrameEvent fe = new FrameEvent(this);
+		jbBuy.addActionListener(fe);
+		jbMenu.addActionListener(fe);
 	}
 }

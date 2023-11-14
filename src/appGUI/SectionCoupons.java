@@ -5,7 +5,6 @@ import java.awt.Color;
 import javax.swing.*;
 import details.*;
 public class SectionCoupons extends JPanel {
-	
 	private static final long serialVersionUID = 1L;
 	public Colors style;
 	public JPanel cupon1;
@@ -15,10 +14,8 @@ public class SectionCoupons extends JPanel {
 	public JPanel cupon5;
 	public JPanel cupon6;
 	
-
 	public SectionCoupons() {
 		
-		//this.setSize(1050, 400);
 		this.setLayout(null);
 		this.setBackground(Color.black);
 		
@@ -30,10 +27,8 @@ public class SectionCoupons extends JPanel {
 		cupon6 = new JPanel();
 		
 		etiquetas();
-		etiquetas2();
-		
+		etiquetas2();	
 	}
-	
 	
 	public void etiquetas() {
 		style = new Colors();
@@ -79,10 +74,10 @@ public class SectionCoupons extends JPanel {
 		//-----------------------------------------------------------CUPON 1
 		JLabel etiqueta1 = new JLabel();
 		etiqueta1.setBounds(0, 20, 150, 130);
-		etiqueta1.setIcon(new Imagens("combo1.png",150,130).imagen());
+		etiqueta1.setIcon(new Imagens("burger1.png",150,130).imagen());
 		cupon1.add(etiqueta1);
 		
-		String texto = "Hamburguesa doble\ncarne    con    papas\ny     soda      grande.";
+		String texto = "Hamburguesa doble\ncarne    con    papas\ny vegetales  frescos.";
 		JTextArea etiqueta2 = new JTextArea(texto);
 		style.fontCouponsP(etiqueta2);
 		cupon1.add(etiqueta2);		
@@ -107,10 +102,10 @@ public class SectionCoupons extends JPanel {
 		//-----------------------------------------------------------CUPON 3
 		JLabel etiqueta7 = new JLabel();
 		etiqueta7.setBounds(0, 20, 150, 130);
-		etiqueta7.setIcon(new Imagens("torta1.png",150,130).imagen());
+		etiqueta7.setIcon(new Imagens("burrito1.png",150,130).imagen());
 		cupon3.add(etiqueta7);
 	    
-		String texto3 = "Emparedado tradicional\nde    jamon    y    queso.\nPerzonalizable.";
+		String texto3 = "burrito tradicional\nde    carne    y    queso.\\nPerzonalizable.";
 		JTextArea etiqueta8 = new JTextArea(texto3);
 		style.fontCouponsP(etiqueta8);
 		cupon3.add(etiqueta8);		
@@ -121,7 +116,7 @@ public class SectionCoupons extends JPanel {
 		//-----------------------------------------------------------CUPON 4
 		JLabel etiqueta10 = new JLabel();
 		etiqueta10.setBounds(0, 20, 150, 150);
-	    etiqueta10.setIcon(new Imagens("combo2.png",150,150).imagen());
+	    etiqueta10.setIcon(new Imagens("burger2.png",150,150).imagen());
 		cupon4.add(etiqueta10);
 			    
 		String texto4 = "Hamburguesa   doble\ncarne      sin     queso,\npapas y  soda   grande.";
@@ -149,10 +144,10 @@ public class SectionCoupons extends JPanel {
 		//-----------------------------------------------------------CUPON 6
 		JLabel etiqueta16 = new JLabel();
 		etiqueta16.setBounds(0, 10, 150, 130);
-	    etiqueta16.setIcon(new Imagens("torta4.png",150,130).imagen());
+	    etiqueta16.setIcon(new Imagens("burger4.png",150,130).imagen());
 		cupon6.add(etiqueta16);
 					    
-		String texto6 = "Emparedado  de  jamon\ncon    lechuga,   tomate,\nmortadela   y  aderesos";
+		String texto6 = "Hamburguesa  de carne\ncon     papas,   tomate,\n  lechuga   y  aderesos";
 		JTextArea etiqueta17 = new JTextArea(texto6);
 		style.fontCouponsP(etiqueta17);
 		cupon6.add(etiqueta17);		

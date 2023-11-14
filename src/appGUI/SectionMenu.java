@@ -2,21 +2,20 @@ package appGUI;
 import java.awt.*;
 import javax.swing.*;
 import details.*;
+import events.MenuEvent;
+import menuDatos.Burgers;
+import menuDatos.Burritos;
 public class SectionMenu extends JPanel{
 	private JButton jbBar[];
-	private JPanel jpInfo[];
 	private JPanel jpItems;
 	public SectionMenu() {
 		this.setLayout(null);
 		setBackground(new Color(13,13,13));
 		//INSTANCIANDO COMPONENTES DEL PANEL
-		jbBar = new JButton[6];
-		jbBar[0] = new JButton("Haburguesas");
+		jbBar = new JButton[3];
+		jbBar[0] = new JButton("Hamburguesas");
 		jbBar[1] = new JButton("Burritos");
 		jbBar[2] = new JButton("Variedad");
-		jbBar[3] = new JButton("Tortas");
-		jbBar[4] = new JButton("Combos");
-		jbBar[5] = new JButton("Refrescos");
 		//PANEL EN EL QUE VAN LOS BOTOBES
 		JPanel jpSelect = new JPanel();
 		jpSelect.setBounds(0, 0, 1050, 50);
@@ -24,7 +23,7 @@ public class SectionMenu extends JPanel{
 		jpSelect.setLayout(null);
 		Colors style = new Colors();
 		int x = 65;//<-----posicion x de los botones
-		for(int i = 0; i < 6; i++) {
+		for(int i = 0; i < 3; i++) {
 			jpSelect.add(jbBar[i]);
 			jbBar[i].setBounds(x, 5, 140, 40);
 			style.MenuButtonStyle(jbBar[i]);
@@ -35,25 +34,18 @@ public class SectionMenu extends JPanel{
 		jpItems = new JPanel();
 		jpItems.setLayout(null);
 		jpItems.setBounds(0, 60, 1050, 350);
-		jpItems.setBackground(Color.CYAN);
-		jpInfo = new JPanel[4];
-		for(int i = 0; i < 4 ; i++) {
-			jpInfo[i] = new JPanel();
-			jpInfo[i].setBackground(Color.BLUE);
-			jpInfo[i].setBounds(50, 60, 175, 175);
-			jpItems.add(jpInfo[i]);
-			//showSection(jpInfo[i]);
-		}
+		jpItems.setBackground(null);
+		Burgers bgr = new Burgers();
+		bgr.setBounds(100, 0, 830, 350);
+		jpItems.add(bgr);
 		//AGREGANDO COMPONENTES A ESTE PANEL
 		add(jpSelect);
 		add(jpItems);
+		//AGREGANDO EVENTOS
+		MenuEvent me = new MenuEvent(jpItems);
+		for(int i = 0; i < 3 ; i++) {
+			jbBar[i].addActionListener(me);
+		}
 	}
-	public void showSection(JPanel p){
-		jpItems.setLayout(null);
-		p.setBounds(0, 0, 1050, 350);
-		jpItems.removeAll();
-		jpItems.add(p);
-		jpItems.revalidate();
-		jpItems.repaint();
-	}
+
 }

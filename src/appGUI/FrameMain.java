@@ -2,6 +2,7 @@ package appGUI;
 import java.awt.*;
 import javax.swing.*;
 import details.*;
+import events.*;
 public class FrameMain extends JFrame{
 	private JPanel jpHeader;
 	private JPanel jpContent;
@@ -23,7 +24,7 @@ public class FrameMain extends JFrame{
 		jbTw = new JButton();//twiter (x)
 		jbIg = new JButton();//instagram
 		jlLogo = new JLabel();
-		jlAppName = new JLabel("NOMBRE DEL PROGRAMA");
+		jlAppName = new JLabel("LA CABAÑITA");
 		//colocando direccion
 		jlLogo.setBounds(40, 20, 40, 40);
 		jbInit.setBounds(150, 20, 100, 30);
@@ -61,22 +62,24 @@ public class FrameMain extends JFrame{
 		//------------------------------------------PANEL CON LAS SECCIONES
 		jpContent = new JPanel();
 		jpContent.setBounds(0, 100, 1050, 490);
+		jpContent.setLayout(null);
 		SectionProducts sp = new SectionProducts();
-		SectionCoupons sc = new SectionCoupons();
-		SectionMenu sm = new SectionMenu();
-		showSection(sm);
+		//SectionCoupons sc = new SectionCoupons();
+		//SectionMenu sm = new SectionMenu();
+		//SectionHorary sh = new SectionHorary();
+		//showSection(sp);
+		sp.setBounds(0, 0, 1050, 400);
+		jpContent.add(sp);
 		jpHeader.setBackground(Color.BLACK);
 		jpContent.setBackground(Color.BLACK);
 		//====================================== agragando paneles al frame
 		this.add(jpHeader);
 		this.add(jpContent);
-	}
-	public void showSection(JPanel p){
-		jpContent.setLayout(null);
-		p.setBounds(0, 0, 1050, 400);
-		jpContent.removeAll();
-		jpContent.add(p);
-		jpContent.revalidate();
-		jpContent.repaint();
+		//====================================== agregando eventos
+		FrameEvent fe = new FrameEvent(jpContent); 
+		jbInit.addActionListener(fe);
+		jbCoupon.addActionListener(fe);
+		jbAbout.addActionListener(fe);
+		jbHorary.addActionListener(fe);
 	}
 }

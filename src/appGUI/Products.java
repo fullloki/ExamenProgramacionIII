@@ -4,7 +4,6 @@ import javax.swing.*;
 import details.*;
 public class Products {
 //private static final long serialVersionUID = 1L;
-	
 	public JPanel panel1;
 	public JPanel panel2;
 	public JPanel panel3;

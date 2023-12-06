@@ -39,6 +39,5 @@ public class RoundedBorder implements Border{
 		                       RenderingHints.KEY_ANTIALIASING,
 		                       RenderingHints.VALUE_ANTIALIAS_ON));
 		  g2.drawRoundRect(x+1,y+1,width-3,height-3,radius,radius);
-		
 	}
 }

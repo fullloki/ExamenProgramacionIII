@@ -1,43 +1,82 @@
 package events;
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import appGUI.*;
+import details.*;
+import logic.*;
+import appGUI.SectionBuy;
 public class FrameEvent implements ActionListener{
-	public JPanel content;
-	public FrameEvent(JPanel content) {
-		this.content = content;
+	private JPanel main,about,horary,menu,buy;//content
+	private JFrame login;
+	private JButton jbLog;
+	private DataBus busData;
+	//private JOptionPane jOptionPane;
+	//private String logUser;
+	Details style = new Details();
+	public FrameEvent(DataBus busData,JPanel main,JPanel about,
+			JPanel horary,JPanel menu,JPanel buy,JFrame login) {
+		//this.content = content;
+		this.busData = busData;
+		this.about = about;
+		this.horary = horary;
+		this.main = main;
+		this.menu = menu;
+		this.buy = buy;
+		this.login = login;
+		this.jbLog = busData.jbtn;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		String actionCommand = e.getActionCommand();
 		if(e.getSource() instanceof JButton) {
 			if("INICIO".equals(actionCommand)) {
-				SectionProducts sp = new SectionProducts();
-				showSection(sp);
-			}else if("CUPONES".equals(actionCommand)) {
-				SectionCoupons sc = new SectionCoupons();
-				showSection(sc);
+				//MUESTRA EL PANEL PRINCIPAL
+				showSection(main);
 			}else if("ACERCA DE".equals(actionCommand)) {
-
+				//MUESTRA EL PANEL ASCERCA DE
+				showSection(about);
 			}else if("HORARIO".equals(actionCommand)) {
-				SectionHorary sh = new SectionHorary();
-				showSection(sh);
+				//MUESTRA EL PANEL DE HORARIO
+				showSection(horary);
 			}else if("COMPRAR".equals(actionCommand)) {
-				
+				//MUESTRA EL PANEL COMPRAR SI SE INICIO SESION
+				if(jbLog.getText().equals("Iniciar sesion")) {
+					login.setVisible(true);
+				}else showSection(buy);
 			}else if("MENU".equals(actionCommand)) {
-				SectionMenu sm = new SectionMenu();
-				showSection(sm);
+				//MUESTRA EL PANEL DE MENU
+				showSection(menu);
+			}else if("LOGIN".equals(actionCommand)) {
+				//MUESTRA EL FRAME DE INICIAR SESION
+				if(jbLog.getText().equals("Iniciar sesion")) {
+					login.setVisible(true);
+				}else {
+					//MUESTRA CONFIRMAR PARA CERRAR SESION
+					confirm();
+				}
+				
 			}
 		}
 	}
-	
-	public void showSection(JPanel p){
-		content.setLayout(null);
-		p.setBounds(0, 0, 1050, 400);
-		content.removeAll();
-		content.add(p);
-		content.revalidate();
-		content.repaint();
+	public void showSection(JPanel p1){
+		busData.content.setLayout(null);
+		p1.setBounds(0, 0, 1050, 400);
+		busData.content.removeAll();
+		busData.content.add(p1);
+		busData.content.revalidate();
+		busData.content.repaint();
 	}
+	public void confirm() {
+		String buttons[] = {"Cerrar","Cancelar"};
+		int op = JOptionPane.showOptionDialog(null,"¿Desea salir de la cuenta?", "Cerrar sesion", 0, JOptionPane.QUESTION_MESSAGE, null, buttons, this);
+		if(op == JOptionPane.YES_OPTION) {
+			//SE CAMBIA EL BOTON DE LOGIN
+			style.jbuttonLogOut(jbLog);
+			busData.resetFacture = true;
+			showSection(main);
+		}
+		/*else if (op == JOptionPane.NO_OPTION) {
+			//System.out.println("Cuenta abierta");
+		}*/
+	}
+
 }

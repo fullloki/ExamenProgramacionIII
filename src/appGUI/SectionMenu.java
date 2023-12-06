@@ -3,8 +3,8 @@ import java.awt.*;
 import javax.swing.*;
 import details.*;
 import events.MenuEvent;
-import menuDatos.Burgers;
-import menuDatos.Burritos;
+import menuDatos.*;
+
 public class SectionMenu extends JPanel{
 	private JButton jbBar[];
 	private JPanel jpItems;
@@ -21,7 +21,7 @@ public class SectionMenu extends JPanel{
 		jpSelect.setBounds(0, 0, 1050, 50);
 		jpSelect.setBackground(null);
 		jpSelect.setLayout(null);
-		Colors style = new Colors();
+		Details style = new Details();
 		int x = 65;//<-----posicion x de los botones
 		for(int i = 0; i < 3; i++) {
 			jpSelect.add(jbBar[i]);
@@ -36,13 +36,15 @@ public class SectionMenu extends JPanel{
 		jpItems.setBounds(0, 60, 1050, 350);
 		jpItems.setBackground(null);
 		Burgers bgr = new Burgers();
+		Burritos brt = new Burritos();
+		Varieties vts = new Varieties();
 		bgr.setBounds(100, 0, 830, 350);
 		jpItems.add(bgr);
 		//AGREGANDO COMPONENTES A ESTE PANEL
 		add(jpSelect);
 		add(jpItems);
 		//AGREGANDO EVENTOS
-		MenuEvent me = new MenuEvent(jpItems);
+		MenuEvent me = new MenuEvent(jpItems,bgr,brt,vts);
 		for(int i = 0; i < 3 ; i++) {
 			jbBar[i].addActionListener(me);
 		}

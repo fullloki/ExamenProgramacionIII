@@ -2,15 +2,15 @@ package appGUI;
 import java.awt.*;
 import javax.swing.*;
 import details.*;
-public class Products {
+public class ProductsIntro {
 //private static final long serialVersionUID = 1L;
 	public JPanel panel1;
 	public JPanel panel2;
 	public JPanel panel3;
 	public JPanel panelbase;
 	
-	Colors style = new Colors();
-	public Products() {
+	Details style = new Details();
+	public ProductsIntro() {
 		panel1 = new JPanel();
 		panel1();
 		panel2 = new JPanel();

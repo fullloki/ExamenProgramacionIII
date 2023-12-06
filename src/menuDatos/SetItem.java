@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import details.*;
 public class SetItem {
-	Colors style = new Colors();
+	Details style = new Details();
 	public void setItem(JPanel jpItem, String imgName, String name, String desc,String price) {
 		jpItem.setLayout(null);
 		jpItem.setBackground(new Color(13,13,13));

@@ -4,7 +4,7 @@ import javax.swing.*;
 import details.*;
 import events.*;
 public class SectionProducts extends JPanel{
-	private JButton jbBuy,jbMenu,jbPrev,jbNext;
+	public JButton jbBuy,jbMenu,jbPrev,jbNext;
 	private JPanel jpProducts;
 	public SectionProducts(){
 		setLayout(null);
@@ -19,7 +19,7 @@ public class SectionProducts extends JPanel{
 		jbPrev.setBounds(35, 180, 30, 30);
 		jbNext.setBounds(965, 180, 30, 30);
 		//detalles
-		Colors style = new Colors();
+		Details style = new Details();
 		style.jbBorderRed(jbBuy);
 		style.jbBorderRed(jbMenu);
 		jbPrev.setBackground(null);jbPrev.setBorder(null);
@@ -29,7 +29,7 @@ public class SectionProducts extends JPanel{
 		//PANEL EN EL QUE SE MUESTRAN LOS PRODUCTOS
 		jpProducts = new JPanel();
 		jpProducts.setBounds(65, 0, 900, 300);
-		Products p1 = new Products();
+		ProductsIntro p1 = new ProductsIntro();
 		jpProducts.setLayout(null);
 		jpProducts.add(p1.panel1);
 		//AGREGANDO COMPONENTES A ESTE PANEL
@@ -42,8 +42,5 @@ public class SectionProducts extends JPanel{
 		SlideEvent slide = new SlideEvent(jpProducts);
 		jbNext.addActionListener(slide);
 		jbPrev.addActionListener(slide);
-		FrameEvent fe = new FrameEvent(this);
-		jbBuy.addActionListener(fe);
-		jbMenu.addActionListener(fe);
 	}
 }

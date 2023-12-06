@@ -6,7 +6,7 @@ import appGUI.*;
 public class SlideEvent implements ActionListener{
 	private JPanel panel;
 	private int np = 1;
-	Products p = new Products();
+	ProductsIntro p = new ProductsIntro();
 	public SlideEvent(JPanel panel) {
 		this.panel = panel;
 	}

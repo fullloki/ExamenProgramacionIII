@@ -2,9 +2,10 @@ package details;
 
 import java.awt.Image;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class Imagens {
+public class Imagens{
 	private String imgName;
 	private int width,height;
 	public Imagens(String imgName,int width,int height) {
@@ -22,7 +23,7 @@ public class Imagens {
 		return height;
 	}
 	//CAMBIAR DIRECCION DE RUTA DE IMAGEN
-	public ImageIcon imagen() {
+	public Icon imagen() {
 		ImageIcon png1 = new ImageIcon("C:\\Users\\HomeWork\\OneDrive\\tareas de asbel\\JAVA\\Proyecto-JAVA\\img\\"+getImgName());
 		ImageIcon img = new ImageIcon(png1.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
 		return img;

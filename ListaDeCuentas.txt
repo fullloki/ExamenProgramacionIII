@@ -2,7 +2,7 @@ Antonio000
 000
 Antonio
 Cortez
-607.06
+462.07
 tocali
 507
 Carlos
@@ -17,7 +17,7 @@ Jeremy456
 444
 Jeremy
 Gonzalez
-250.0
+5000.0
 asbel507
 123
 Asbel
@@ -28,8 +28,13 @@ Pame
 Pamela
 Vallejo
 400.0
-nena
-nena
-Noemi
-Castillo
-120.0
+EdgarJ
+1234
+Edgar
+Hola
+200.0
+Pino
+pino
+Alvaro
+Pino
+268.02

@@ -1,6 +1,9 @@
 package menuDatos;
 import java.awt.*;
 import javax.swing.*;
+/**
+ * Claso con los datos de MENU de Hamburguesas.
+ */
 public class Burgers extends JPanel{
 	public JPanel jp1,jp2,jp3,jp4;
 	public String img1,img2,img3,img4;

@@ -1,18 +1,21 @@
 package details;
-/*import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Insets;
-import javax.swing.border.Border;*/
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+/**
+ * Clase para redondear botones.
+ */
 public class RoundedBorder implements Border{
 	private int radius;
 	//private Color favColor = Color.decode("#0099DD");
 	private Color favColor;//color
 	private float thickness;//grosor
-	
+	/**
+	 * Constructor para asignar estilo de redondeo al boton.
+	 * @param radius. Parametro para la curva.
+	 * @param favColor. Parametro para el color.
+	 * @param thickness. Parametro par el grosor.
+	 */
 	public RoundedBorder(int radius,Color favColor,float thickness){
 		this.radius = radius;
 		this.favColor = favColor;

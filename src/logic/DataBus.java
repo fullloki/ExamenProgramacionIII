@@ -1,5 +1,8 @@
 package logic;
 import javax.swing.*;
+/**
+ * Clase para pasar parametros entre clases
+ */
 public class DataBus {
 	public JPanel main;
 	public JPanel content;

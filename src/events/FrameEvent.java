@@ -4,6 +4,9 @@ import javax.swing.*;
 import details.*;
 import logic.*;
 import appGUI.SectionBuy;
+/**
+ * Clase para los eventos de cambiar de panel en el Frame (INICIO).
+ */
 public class FrameEvent implements ActionListener{
 	private JPanel main,about,horary,menu,buy;//content
 	private JFrame login;
@@ -57,6 +60,10 @@ public class FrameEvent implements ActionListener{
 			}
 		}
 	}
+	/**
+	 * Metodo para cambiar de panel.
+	 * @param p1. Parametro que asigna el panel a mostrar.
+	 */
 	public void showSection(JPanel p1){
 		busData.content.setLayout(null);
 		p1.setBounds(0, 0, 1050, 400);
@@ -65,6 +72,9 @@ public class FrameEvent implements ActionListener{
 		busData.content.revalidate();
 		busData.content.repaint();
 	}
+	/**
+	 * Metodo para confirmar cerrar sesion.
+	 */
 	public void confirm() {
 		String buttons[] = {"Cerrar","Cancelar"};
 		int op = JOptionPane.showOptionDialog(null,"¿Desea salir de la cuenta?", "Cerrar sesion", 0, JOptionPane.QUESTION_MESSAGE, null, buttons, this);
@@ -74,9 +84,6 @@ public class FrameEvent implements ActionListener{
 			busData.resetFacture = true;
 			showSection(main);
 		}
-		/*else if (op == JOptionPane.NO_OPTION) {
-			//System.out.println("Cuenta abierta");
-		}*/
 	}
 
 }

@@ -2,6 +2,9 @@ package appGUI;
 import java.awt.*;
 import javax.swing.*;
 import details.*;
+/**
+ * Esta clase contiene la informacion de los productos: Hamburguesas, Burritos y Variados. 
+ */
 public class ProductsIntro {
 //private static final long serialVersionUID = 1L;
 	public JPanel panel1;
@@ -18,8 +21,6 @@ public class ProductsIntro {
 		panel3 = new JPanel();
 		panel3();
 	}
-	
-	
 	public void panel1() {
 		panel1.setLayout(null);
 		panel1.setBounds(0, 0, 900, 300);
@@ -44,7 +45,6 @@ public class ProductsIntro {
 	    etiqueta3.setIcon(new Imagens("burger1.png",350,242).imagen());
 	    panel1.add(etiqueta3);
 	}
-	
 	public void panel2() {
 		panel2.setLayout(null);
 	    panel2.setBounds(0, 0, 900, 300);
@@ -70,7 +70,6 @@ public class ProductsIntro {
 	    panel2.add(etiqueta6);
 		
 	}
-	
 	public void panel3() {
 		panel3.setLayout(null);
 		panel3.setBounds(0, 0, 900, 300);

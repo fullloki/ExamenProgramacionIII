@@ -7,6 +7,10 @@ import loginGUI.Login;
 import logic.*;
 import bankGUI.*;
 import principal.Menu_Bar;
+/**
+ * Clase principal, en la que se muestran las secciones INICIO, ACERCA DE, HORARIO, MENU, COMPRAR e INICIAR SESION.
+ * Tambien contiene Menubar para cambiar de Frame y dos paneles uno con el encabezado y otro con el contenido.
+ */
 public class FrameMain extends JFrame{
 	private JPanel jpHeader;
 	private JPanel jpContent;
@@ -19,7 +23,6 @@ public class FrameMain extends JFrame{
 		super(title);
 		this.setLayout(null);
 		this.setBackground(Color.BLACK);
-		
 		//------------------------------------------PANEL CON EL ENCABEZADO
 		jpHeader = new JPanel();
 		jpHeader.setBounds(0, 0, 1050, 100);

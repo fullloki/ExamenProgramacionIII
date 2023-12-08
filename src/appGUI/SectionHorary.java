@@ -3,7 +3,9 @@ package appGUI;
 import java.awt.*;
 import javax.swing.*;
 import details.*;
-
+/**
+ * Clase que muestra informacion del horario al presionar en la seccion HORARIO. 
+ */
 public class SectionHorary extends JPanel{
 
 	public JPanel panel1;

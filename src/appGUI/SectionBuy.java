@@ -7,6 +7,9 @@ import javax.swing.*;
 import details.*;
 import logic.*;
 import events.*;
+/**
+ * Clase que muetra los productos en botones y la factura al elegir un producto en la seccion COMPRAR.
+ */
 public class SectionBuy extends JPanel{
 private static final long serialVersionUID = 1L;
 	
@@ -59,7 +62,7 @@ private static final long serialVersionUID = 1L;
 		//panelbotones.setLayout(new GridLayout(3,1,4,1));
 		panelbotones.setLayout(new GridLayout(3,4));
 		estiloboton();
-		añadirbotones(panelbotones);
+		addButtons(panelbotones);
 		this.add(panelbotones);
 		panelbotones.setVisible(true);
 		
@@ -87,7 +90,11 @@ private static final long serialVersionUID = 1L;
     
     
 	//************************ METODO QUE SE USAN EN E PANEL DE PRODUCTOS CON PRECIO Y PANEL DE BORRAR *******************************
-	public void añadirbotones(JPanel panel) {
+    /**
+     * 
+     * @param panel. En este parametro se agregan los botones que se crean con la clase ProductButtonBuy.
+     */
+	public void addButtons(JPanel panel) {
 		
 		BuyEvent buy = new BuyEvent(product,factura,totalPagar,jbComprar,dataBus);
 		
@@ -105,6 +112,9 @@ private static final long serialVersionUID = 1L;
 	
 	
 	//************************* METODO DEL TEXTAREA *************************************
+	/**
+	 * En este metodo se agrega un TextArea  a un panel para que funcione como factura.
+	 */
 	public void PanelFactura() {
 		
 		panelfactura.setLayout(null);

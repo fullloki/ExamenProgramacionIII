@@ -5,6 +5,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import events.*;
 import logic.*;
+/**
+ * Clase con las opciones de iniciar sesion o registrarse
+ */
 @SuppressWarnings("serial")
 public class Login extends JFrame {
 	private SignIn sign;
@@ -36,6 +39,10 @@ public class Login extends JFrame {
 		regit.btnRegist.addActionListener(reg);
 		this.add(content);
 	}
+	/**
+	 * METODO PARA MOSTRAR PANEL
+	 * @param p - asigna el panel a mostrar.
+	 */
 	public void showPanel(JPanel p){
 		content.setLayout(null);
 		p.setBounds(0, 0, 800, 420);

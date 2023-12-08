@@ -3,6 +3,9 @@ import java.awt.*;
 import javax.swing.*;
 import details.*;
 import events.*;
+/**
+ * Clase que muestra la informacion de la clase ProductIntro en la seccion INICIO.
+ */
 public class SectionProducts extends JPanel{
 	public JButton jbBuy,jbMenu,jbPrev,jbNext;
 	private JPanel jpProducts;

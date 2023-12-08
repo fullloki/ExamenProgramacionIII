@@ -2,6 +2,9 @@ package logic;
 import java.io.*;
 import javax.swing.*;
 import java.util.LinkedList;
+/**
+ * Clase para insertar las cuentas en listas y guardar en archivo txt.
+ */
 public class AccountList {
 	private File file;
 	private boolean exists,validePass,valideUser;
@@ -23,14 +26,24 @@ public class AccountList {
 	public LinkedList<Account> getList() {
 		return list;
 	}
-	//------------------------------------------- Metodo para agregar una cuenta a la lista
+	/**
+	 * METODO PARA AGREGAR UNA CUENTA A LA LISTA
+	 * @param data -Parametro con los datos de la cuenta a comprobar.
+	 */
 	public void insert(Account data) {
 		list.add(data);
 	}
+	/**
+	 * METODO PARA BORRAR UNA CUENTA DE LA LISTA
+	 * @param x - Parametro con la posicion de la cuenta en la lista.
+	 */
 	public void delet(int x) {
 		list.remove(x);
 	}
-	//------------------------------------------- Metodo para buscar y comprobar usuarios
+	/**
+	 * METODO PARA BUSCAR Y COMPROBAR UNA CUENTA EN LA LISTA
+	 * @param data - Parametro con los datos de la cuenta a comprobar.
+	 */
 	public void searcher(Account data) {
 		String userName;
 		String pass;
@@ -46,21 +59,17 @@ public class AccountList {
 			}
 		}
 	}
+	/**
+	 * METODO PARA OBTENER POSICION DEL USUARIO EN LA LISTA
+	 * @return - Devuelve la posicion del usuario en la lista.
+	 */
 	public int getAccountIndex() {
 		return index;
 	}
-	public void searcher(String data) {
-		String userName;
-		if(!list.isEmpty()) {
-			for(int i = 0; i < list.size(); i++) {
-				userName = list.get(i).getUser();
-				if(data.equals(userName)) {
-					exists = true;
-					break;
-				}else exists = false;
-			}
-		}
-	}
+	/**
+	 * METODO PARA VALIDAR SI EL NOMBRE DE USUARIO ESTA EN USO.
+	 * @param data - Parametro con los datos de la cuenta a comprobar. 
+	 */
 	public void valideUser(Account data) {
 		String user;
 		if(!list.isEmpty()) {
@@ -73,6 +82,10 @@ public class AccountList {
 			}
 		}
 	}
+	/**
+	 * METODO PARA VALIDAR SI LA CONTRASEÑA ESTA EN USO.
+	 * @param data - Parametro con los datos de la cuenta a comprobar. 
+	 */
 	public void validePass(Account data) {
 		String pass;
 		if(!list.isEmpty()) {
@@ -85,8 +98,10 @@ public class AccountList {
 			}
 		}
 	}
-	//==================================================== METODOS DEL ARCHIVO
-	
+	/**
+	 * METODO PARA VALIDAR SI EL ARCHIVO EXISTE
+	 * @return - Devuelve un mensaje sobre si existe o no el archivo.
+	 */
 	public boolean fileExist() {
 		if(file.exists()) {
 			System.out.println("El archivo existe");
@@ -96,7 +111,9 @@ public class AccountList {
 			return false;
 		}
 	}
-	//------------------------------------------- Crear archivo
+	/**
+	 * METODO PARA CREAR ARCHIVO
+	 */
 	public void makeFile() {
 		try {
 			if(file.createNewFile()) {
@@ -109,7 +126,9 @@ public class AccountList {
 			e.printStackTrace(System.out);
 		}
 	}
-	//------------------------------------------- Escribir en el archivo
+	/**
+	 * METODO PARA GUARDAR LOS DATOS DE LA LISTA EN EL ARCHIVO
+	 */
 	public void writeIFile() {
 		try {
 			if(!list.isEmpty()) {
@@ -127,7 +146,9 @@ public class AccountList {
 			e.printStackTrace(System.out);
 		}
 	}
-	//------------------------------------------- Leer el archivo y cargar en la lista
+	/**
+	 * METODO PARA CARGAR LOS DATOS DEL ARCHIVO A LA LISTA
+	 */
 	public void readFile() {
 		String ftName,ltName,user,pass;
 		double balance;
@@ -151,6 +172,4 @@ public class AccountList {
 			e.printStackTrace(System.out);
 		}
 	}
-	//-------------------------------------------
-	
 }

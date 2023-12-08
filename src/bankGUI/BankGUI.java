@@ -7,6 +7,9 @@ import javax.swing.*;
 import details.*;
 import events.*;
 import logic.*;
+/**
+ * Clase principal del banco, que muestra el inicio de sesion como administrador y la seccion de administrativa.
+ */
 public class BankGUI extends JFrame{
 	private JPanel content;
 	Details style = new Details();

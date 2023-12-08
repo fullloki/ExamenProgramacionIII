@@ -2,6 +2,9 @@ package appGUI;
 import java.awt.*;
 import details.*;
 import javax.swing.*;
+/**
+ * Clase que muestra informacion de este proyecto y los nombres de los participantes en la seccion ACERCA DE. 
+ */
 public class SectionAboutUs extends JPanel{
 	public JPanel panel1;
 	Details style = new Details();

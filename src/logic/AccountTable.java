@@ -3,7 +3,9 @@ package logic;
 import java.awt.Color;
 import javax.swing.*;
 import javax.swing.table.*;
-
+/**
+ * Clase para crear tabla de cuentas
+ */
 public class AccountTable {
 	private String columName[] = {"Usuario","Contraseñas","Nombre","Apellido","Monto"};
 	private Object rowData[][];
@@ -41,49 +43,39 @@ public class AccountTable {
 		//dtm.fireTableDataChanged();
 		//table.setModel(dtm);
 	}
+	/**
+	 * METODO PARA AGREGAR UNA CUENTA A LA TABLE
+	 * @param data - Parametro con los datos de la cuenta.
+	 */
 	public void addAccountRow(Account data) {
-			if(!list.fileExist())list.makeFile();
-			list.readFile();
-			list.searcher(data);
-			//------------------------------------------
-			//public void veyfyRegistre() {
-				list.valideUser(data);
-				list.validePass(data);
-				if(list.getValideUser()) {
-					//System.out.println("Usuario en uso probar otro");
-					JOptionPane.showMessageDialog(null,"Usuario en uso probar otro","ERROR AL AGREGAR USUARIO",JOptionPane.ERROR_MESSAGE);
-				}
-				if(list.getValidePass()) {
-					//System.out.println("Contraseña en uso probar otra");
-					JOptionPane.showMessageDialog(null,"Contraseña en uso probar otra","ERROR AL AGREGAR CONTRASEÑA",JOptionPane.ERROR_MESSAGE);
-				}
-				if(!list.getValidePass() && !list.getValideUser()) {
-					list.insert(data);
-					list.writeIFile();
-					obj[0] = data.getUser().trim();
-					obj[1] = data.getPass().trim();
-					obj[2] = data.getFtName().trim();
-					obj[3] = data.getLtName().trim();
-					obj[4] = data.getBalance();
-					dtm.addRow(obj);
-				}
-			//}
-			//------------------------------------------
-			
-			
-			/*if(list.getExists()) {
-				System.out.println("Usuario existente");
-			}else {
-				list.insert(data);
-				list.writeIFile();
-				obj[0] = data.getUser().trim();
-				obj[1] = data.getPass().trim();
-				obj[2] = data.getFtName().trim();
-				obj[3] = data.getLtName().trim();
-				obj[4] = data.getBalance();
-				dtm.addRow(obj);
-			}*/
+		if(!list.fileExist())list.makeFile();
+		list.readFile();
+		list.searcher(data);
+		//------------------------------------------
+		list.valideUser(data);
+		list.validePass(data);
+		if(list.getValideUser()) {
+			//System.out.println("Usuario en uso probar otro");
+			JOptionPane.showMessageDialog(null,"Usuario en uso probar otro","ERROR AL AGREGAR USUARIO",JOptionPane.ERROR_MESSAGE);
+		}
+		if(list.getValidePass()) {
+			//System.out.println("Contraseña en uso probar otra");
+			JOptionPane.showMessageDialog(null,"Contraseña en uso probar otra","ERROR AL AGREGAR CONTRASEÑA",JOptionPane.ERROR_MESSAGE);
+		}
+		if(!list.getValidePass() && !list.getValideUser()) {
+			list.insert(data);
+			list.writeIFile();
+			obj[0] = data.getUser().trim();
+			obj[1] = data.getPass().trim();
+			obj[2] = data.getFtName().trim();
+			obj[3] = data.getLtName().trim();
+			obj[4] = data.getBalance();
+			dtm.addRow(obj);
+		}
 	}
+	/**
+	 * METODO PARA BORRAR CUENTA DE LA TABLA
+	 */
 	public void deletAccountRow() {
 		if(table.getSelectedRow()==-1) {
 			JOptionPane.showMessageDialog(null,"No se ha seleccionado una cuenta de la tabla","ERROR AL BORRAR",JOptionPane.ERROR_MESSAGE);
@@ -93,6 +85,14 @@ public class AccountTable {
 			list.writeIFile();
 		}
 	}
+	/**
+	 * METODO PARA EDITAR DATOS DE LA CUENTA SELECCIONADA
+	 * @param txtName - Parametro para cargar nombre de la table.
+	 * @param txtLastName - Parametro para cargar apellido de la table.
+	 * @param txtUser - Parametro para cargar usuario de la table.
+	 * @param txtPassword - Parametro para cargar contraseña de la table.
+	 * @param txtSaldoIni - Parametro para cargar balance de la table.
+	 */
 	public void editAccountRow(JTextField txtName,JTextField txtLastName,
 			JTextField txtUser,JTextField txtPassword,JTextField txtSaldoIni) {
 		
@@ -108,6 +108,14 @@ public class AccountTable {
 			//modifyAccountRow(txtName,txtLastName,txtUser,txtPassword,txtSaldoIni);
 		}
 	}
+	/**
+	 * METODO PARA MODIFICAR CUENTA SELECCIONADA
+	 * @param txtName - Parametro para modificar nombre.
+	 * @param txtLastName - Parametro para modificar apellido.
+	 * @param txtUser - Parametro para modificar usuario.
+	 * @param txtPassword - Parametro para modificar contraseña.
+	 * @param txtSaldoIni - Parametro para modificar balance.
+	 */
 	public void modifyAccountRow(JTextField txtName,JTextField txtLastName,
 			JTextField txtUser,JTextField txtPassword,JTextField txtSaldoIni) {
 		if(table.getSelectedRow()==-1) {
@@ -128,6 +136,14 @@ public class AccountTable {
 		list.writeIFile();
 		rowSelected = -1;
 	}
+	/**
+	 * METODO PARA LIMPIAR TEXTFIELDS.
+	 * @param txtName
+	 * @param txtLastName
+	 * @param txtUser
+	 * @param txtPassword
+	 * @param txtSaldoIni
+	 */
 	public void cleanJtextField(JTextField txtName,JTextField txtLastName,
 			JTextField txtUser,JTextField txtPassword,JTextField txtSaldoIni) {
 		txtUser.setText    ("");

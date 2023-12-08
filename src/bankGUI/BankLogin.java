@@ -4,6 +4,9 @@ import javax.swing.*;
 import loginGUI.*;
 import details.*;
 import events.*;
+/**
+ * Clase que contiene el Inicio de sesion del banco.
+ */
 public class BankLogin extends SignIn{
 	private JLabel jlBankNismo;
 	//private JLabel jlMsg;

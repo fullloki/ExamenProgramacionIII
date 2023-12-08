@@ -2,12 +2,24 @@ package events;
 import java.awt.event.*;
 import javax.swing.*;
 import details.*;
+/**
+ * Clase para los eventos en los JTextField.
+ */
 public class JtextfEvents{
 	private boolean name,ltName,user,pass,balance;
 	Details style = new Details();
 	public JtextfEvents() {
 		
 	}
+	/**
+	 * Constructor para saber si se ha insertado un texto en los texFields.
+	 * @param jtfName. Parametro para nombre.
+	 * @param jtfLtName. Parametro para apellido.
+	 * @param jtfUser. Parametro para usuario.
+	 * @param jtfPass. Parametro para contraseña.
+	 * @param jtfBalance. Parametro para monto.
+	 * @param btn. Parametro para habilitar o desabilitar boton.
+	 */
 	public JtextfEvents(JTextField jtfName,JTextField jtfLtName,JTextField jtfUser,JTextField jtfPass,JTextField jtfBalance,JButton btn) {
 		
 		jtfName.addKeyListener(new KeyAdapter() {
@@ -57,7 +69,12 @@ public class JtextfEvents{
 		});
 		
 	}
-	//METODO DE FOCUS EVENTS PARA LA ETIQUETAS
+	//
+	/**
+	 * METODO DE FOCUS EVENTS PARA LA ETIQUETAS
+	 * @param txtField. Parametro para detalles en el textField.
+	 * @param etiquetaDato. Parametro para asignar texto enfocado.
+	 */
 	public void focusEvent (JTextField txtField, String etiquetaDato) {
 		txtField.addFocusListener(new FocusListener () {
 			
@@ -81,7 +98,10 @@ public class JtextfEvents{
 			}
 		});
 	}
-	
+	/**
+	 * Metodo para Habilitar y desabilitar boton
+	 * @param btn. Parametro para habilitar o desabilitar boton.
+	 */
     public void habiliteButton(JButton btn) {
     	if(name && ltName && user && pass && balance) {
     		btn.setEnabled(true);

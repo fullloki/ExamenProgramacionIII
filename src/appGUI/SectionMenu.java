@@ -4,7 +4,9 @@ import javax.swing.*;
 import details.*;
 import events.MenuEvent;
 import menuDatos.*;
-
+/**
+ * Clase que muestra los tipos de productos y su descripcion en la seccion MENU.
+ */
 public class SectionMenu extends JPanel{
 	private JButton jbBar[];
 	private JPanel jpItems;

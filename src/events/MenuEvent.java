@@ -3,8 +3,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import menuDatos.*;
+/**
+ * Clase con los eventos del MENU.
+ */
 public class MenuEvent implements ActionListener{
 	private JPanel jpItems,bgr,brt,vts;
+	/**
+	 * CONSTRUCTOR PARA OBTENER DATOS DE LOS TIPOS DE PRODUCTOS
+	 * @param jpItems. Parametro para mostrar un tipo de producto.
+	 * @param bgr. Parametro para productos tipo hamburguesas.
+	 * @param brt. Parametro para productos tipo burrito.
+	 * @param vts. Parametro para productos tipo variado.
+	 */
 	public MenuEvent(JPanel jpItems,JPanel bgr,JPanel brt,JPanel vts) {
 		this.jpItems = jpItems;
 		this.bgr = bgr;
@@ -29,6 +39,12 @@ public class MenuEvent implements ActionListener{
 			}
 		}
 	}
+	/**
+	 * METODO PARA MOSTRAR EL TIPO DE PRODUCTO SELECCIONADO
+	 * @param p1. Parametro para mostrar tipo de producto.
+	 * @param p2. Parametro para ocultar tipo de producto.
+	 * @param p3. Parametro para ocultar tipo de producto.
+	 */
 	public void showItems(JPanel p1,JPanel p2,JPanel p3){
 		jpItems.setLayout(null);
 		p1.setBounds(100, 0, 830, 350);
@@ -37,11 +53,4 @@ public class MenuEvent implements ActionListener{
 		p2.setVisible(false);
 		p3.setVisible(false);
 	}
-	/*public void showItems(JPanel p){
-		p.setBounds(100, 0, 830, 350);
-		jpItems.removeAll();
-		jpItems.add(p);
-		jpItems.revalidate();
-		jpItems.repaint();
-	}*/
 }

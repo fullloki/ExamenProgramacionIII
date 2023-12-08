@@ -3,6 +3,9 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import appGUI.*;
+/**
+ * Clase para eventos de deslizar en el INICIO.
+ */
 public class SlideEvent implements ActionListener{
 	private JPanel panel;
 	private int np = 1;
@@ -26,6 +29,10 @@ public class SlideEvent implements ActionListener{
 			}
 		}
 	}
+	/**
+	 * METODO PARA MOSTRAR PANEL
+	 * @param p. Parametro para asignar panel.
+	 */
 	public void showProduct(JPanel p){
 		panel.setLayout(null);
 		p.setBounds(0, 0, 900, 300);
@@ -34,6 +41,10 @@ public class SlideEvent implements ActionListener{
 		panel.revalidate();
 		panel.repaint();
 	}
+	/**
+	 * METODO PARA DESLIZAR EN ORDEN
+	 * @param n. Parametro para el numero del panel.
+	 */
 	public void numberPanel(int n) {
 		if(n == 1)showProduct(p.panel1);
 		else if (n == 2)showProduct(p.panel2);

@@ -4,6 +4,9 @@ import appGUI.*;
 import java.awt.event.*;
 import details.*;
 import logic.*;
+/**
+ * Clase con los eventos de COMPRAR.
+ */
 public class BuyEvent implements ActionListener{
 	private ProductButtonBuy btn[];
 	private ProductList pdtList;
@@ -15,7 +18,14 @@ public class BuyEvent implements ActionListener{
 	private AccountList accList;
 	//private JLabel icon;
 	Details style = new Details();
-	
+	/**
+	 * Constructor 
+	 * @param btn. Parametro para acceder a los ProductButtonBuy.
+	 * @param jta. Parametro para insertar informacion en la factura.
+	 * @param jlTotal. Parametro para insertar total.
+	 * @param jbBuy. Parametro para Habilitar y Desabilitar boton Comprar.
+	 * @param dataBus. Parametro para volver al main despues de realizar compra.
+	 */
 	public BuyEvent(ProductButtonBuy btn[],JTextArea jta,JLabel jlTotal,JButton jbBuy,DataBus dataBus) {
 		this.btn = btn;
 		this.jta = jta;
@@ -75,6 +85,9 @@ public class BuyEvent implements ActionListener{
 		pdtList.display(jta);
 		pdtList.total(jlTotal);
 	}
+	/**
+	 * Metodo para comprar producto.
+	 */
 	public void buyProducts() {
 		accList.readFile();
 		//System.out.println(dataBus.getIndex());
@@ -91,6 +104,10 @@ public class BuyEvent implements ActionListener{
 		cleanFacture();//LIMPIAR 
 		if(dataBus.resetFacture)cleanFacture();
 	}
+	/**
+	 * Metodo para borrar producto.
+	 * @param x. Parametro para asignar la posicion del producto en la lista.
+	 */
 	public void deletProduct(int x) {
 		for(int i = 0; i < pdtList.getList().size(); i++) {
 			if(btn[x].nameProduct.equals(pdtList.getList().get(i).name)) {
@@ -101,6 +118,10 @@ public class BuyEvent implements ActionListener{
 			}
 		}
 	}
+	/**
+	 * Metodo para Habilitar boton de borrar un producto.
+	 * @param x. Parametro para asignar la posicion del boton en el arreglo 
+	 */
 	public void enableDelet(int x) {
 		for(int i = 0; i < pdtList.getList().size(); i++) {
 			if(pdtList.getList().get(i).amount > 0) {
@@ -108,12 +129,19 @@ public class BuyEvent implements ActionListener{
 			}
 		}
 	}
+	/**
+	 * Metodo para limpiar factura.
+	 */
 	public void cleanFacture() {
 		jta.setText("");
 		pdtList.deletList();
 		jbBuy.setEnabled(false);
 		for(int i = 0; i < 12; i++)btn[i].quit.setEnabled(false);
 	}
+	/**
+	 * Metodo para volver al panel INICIO.
+	 * @param p1. Parametro para asignar el panel a mostrar. 
+	 */
 	public void showPanel(JPanel p1){
 		dataBus.content.setLayout(null);
 		p1.setBounds(0, 0, 1050, 400);
@@ -122,6 +150,9 @@ public class BuyEvent implements ActionListener{
 		dataBus.content.revalidate();
 		dataBus.content.repaint();
 	}
+	/**
+	 * Metodo para confirmar compra.
+	 */
 	public void confirm() {
 		String buttons[]= {"Confirmar","Cancelar"};
 		int op = JOptionPane.showOptionDialog(null,"Confirmar la compra por B/."+Math.round(pdtList.getTotal()*100.0)/100.0, "Confirmar compra", 0,0,new Imagens("carrito.png",40,40).imagen(), buttons, this);
@@ -132,11 +163,17 @@ public class BuyEvent implements ActionListener{
 			//System.out.println("Cuenta abierta");
 		}*/
 	}
+	/**
+	 * Metodo para alerta de fondos insufucientes.
+	 */
 	public void noMoney() {
 		String []ok={"ok"};
 		JOptionPane.showOptionDialog(null,"No cuenta con el monto necesario para la compra de B/."+pdtList.getTotal(), "Fondos insuficiente", 0,
 										JOptionPane.PLAIN_MESSAGE,new Imagens("sin-dinero.png",40,40).imagen(), ok, this);
 	}
+	/**
+	 * Metodo para mensaje de compra realizada.
+	 */
 	public void done() {
 		String []done={"Listo"};
 		JOptionPane.showOptionDialog(null,"La compra se ha hecho satisfactoriamente", "Compra Realizada", 0,

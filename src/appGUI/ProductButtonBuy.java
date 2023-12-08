@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import details.*;
 import events.BuyEvent;
+/**
+ * Clase para crear Botones para seleccionar un producto en la seccion comprar.
+ */
 public class ProductButtonBuy extends JButton{
 	public JButton quit;
 	public String nameProduct;

@@ -6,6 +6,9 @@ import bankGUI.*;
 import details.Details;
 import logic.*;
 import appGUI.FrameMain;
+/**
+ * Clase con los eventos de inicio de sesion del banco y del restaurante.
+ */
 public class LoginEvent extends MouseAdapter implements ActionListener,MouseListener{
 	private JPanel content;
 	private Admins adm;
@@ -18,7 +21,15 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 	private DataBus dataBus;
 	AccountList accList;
 	Details style = new Details();
-	//CONSTRUCTOR PARA INICIAR DEDE EL BOTON LOGIN,APP
+	
+	/**
+	 * CONSTRUCTOR PARA INICIAR DEDE EL BOTON LOGIN,APP
+	 * @param frame - Parametro para cerrar Frame del login.
+	 * @param dataBus - Parametro para asignar usuario al texto del boton "Iniciar sesion".
+	 * @param logUser - Parametro para usuarios insertados.
+	 * @param logPass - Parametro para contraseñas insertadas.
+	 * @param jlMsg - Parametro para enviar alerta.
+	 */
 	public LoginEvent(JFrame frame,DataBus dataBus,JTextField logUser,JTextField logPass,JLabel jlMsg) {
 		this.logUser = logUser;
 		this.logPass = logPass;
@@ -28,14 +39,26 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 		this.dataBus = dataBus;
 		accList = new AccountList();
 	}
-	//CONSTRUCTOR PARA CAMBIAR DE PANEL DE INICIO A REGISTRARSE
+	/**
+	 * CONSTRUCTOR PARA CAMBIAR DE PANEL DE INICIO A REGISTRARSE
+	 * @param content - Parametro para mostrar contenido.
+	 * @param p1 - Parametro para mostrar panel de inicio de sesion.
+	 * @param p2 - Parametro para mostrar panel de registro.
+	 * @param label - Parametro para hipervinculo.
+	 */
 	public LoginEvent(JPanel content,JPanel p1,JPanel p2,JLabel label) {
 		this.content = content;
 		this.p1 = p1;
 		this.p2 = p2;
 		this.label = label;
 	}
-	//CONSTRUCTOR PARA INICIAR SESION EN EL BANCO
+	/**
+	 * CONSTRUCTOR PARA INICIAR SESION EN EL BANCO
+	 * @param content - Parametro para mostrar contenido.
+	 * @param logUser - Parametro para usuarios insertados.
+	 * @param logPass - Parametro para contraseñas insertadas.
+	 * @param jlMsg - Parametro para enviar alerta.
+	 */
 	public LoginEvent(JPanel content,JTextField logUser,JTextField logPass,JLabel jlMsg) {
 		this.content = content;
 		this.logUser = logUser;
@@ -43,7 +66,18 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 		this.jlMsg = jlMsg;
 		accList = new AccountList();
 	}
-	//CONSTRUCTOR PARA REGISTRARSE
+	/**
+	 * CONSTRUCTOR PARA REGISTRARSE
+	 * @param content - Parametro para mostrar contenido.
+	 * @param p1 - Parametro para mostrar panel de inicio de sesion.
+	 * @param logUser - Parametro para usuarios insertados.
+	 * @param logPass - Parametro para contraseñas insertadas.
+	 * @param logFtName - Parametro para nombres insertados.
+	 * @param logLtName - Parametro para apellidos insertados.
+	 * @param logBalance - Parametro para balances insertados.
+	 * @param userMsg - Parametro para alerta de usuario repetido
+	 * @param passMsg - Parametro para alerta de contraseña repetida.
+	 */
 	public LoginEvent(JPanel content,JPanel p1,JTextField logUser,JTextField logPass,JTextField logFtName
 						,JTextField logLtName,JTextField logBalance,JLabel userMsg,JLabel passMsg) {
 		this.content = content;
@@ -88,6 +122,9 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 
 		}
 	}
+	/**
+	 * METODO PARA VERIFICAR USUARIO
+	 */
 	public void veyfyRegistre() {
 		accList.valideUser(logData);
 		accList.validePass(logData);
@@ -106,6 +143,9 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 			addNewUser();
 		}
 	}
+	/**
+	 * METODO PARA AGREGAR USUARIO.
+	 */
 	public void addNewUser() {
 		accList.readFile();
 		accList.insert(logData);
@@ -113,6 +153,9 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 		cleanTextField();
 		showPanel(p1);
 	}
+	/**
+	 * METODO PARA LIMPIAR TEXTFIELDS
+	 */
 	public void cleanTextField() {
 		logUser.setText("");
 		logPass.setText("");
@@ -120,6 +163,10 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 		logLtName.setText("");
 		logBalance.setText("");
 	}
+	/**
+	 * METODO PARA VERIFICAR INICIO DE ADMINISTRADORES
+	 * @param logUser
+	 */
 	public void verifyLogin(String logUser) {
 		if(!accList.getExists()) {
 			jlMsg.setText("Usuario o contraseña no valida");
@@ -135,7 +182,10 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 		//	System.out.println(accList.getAccountIndex());
 		}
 	}
-
+	/**
+	 * METODO PARA MOSTRAR PANEL
+	 * @param p. Parametro para asignar panel a mostrar.
+	 */
 	public void showPanel(JPanel p){
 		content.setLayout(null);
 		p.setBounds(0, 0, 900, 600);
@@ -144,16 +194,22 @@ public class LoginEvent extends MouseAdapter implements ActionListener,MouseList
 		content.revalidate();
 		content.repaint();
 	}
-	
+	/**
+	 * METODO PARA IR AL REGISTRO
+	 */
     public void mouseClicked (MouseEvent e) {
  	 showPanel(p2);
     }	
-    
+    /**
+     * METODO PARA ENFOCAR HIPERVINCULO
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
  	  label.setForeground(new Color(255, 87, 51));
     	}
-    
+    /**
+     * METODO PARA DESENFOCAR HIPERVINCULO
+     */
     @Override
     public void mouseExited(MouseEvent e) {	
         label.setForeground(new Color(153,153,153));

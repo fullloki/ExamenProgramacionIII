@@ -1,6 +1,9 @@
 package menuDatos;
 import java.awt.*;
 import javax.swing.*;
+/**
+ * Claso con los datos de MENU de Burritos.
+ */
 public class Burritos extends Burgers{
 	//SetItem s = new SetItem();
 	public Burritos() {

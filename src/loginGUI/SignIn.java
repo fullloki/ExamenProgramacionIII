@@ -5,6 +5,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import details.*;
 import events.*;
+/**
+ * Clase con la interfaz de iniciar sesion
+ */
 @SuppressWarnings("serial")
 public class SignIn extends JPanel {
     protected JLabel lbTitle, lbSubTitle;
@@ -106,8 +109,10 @@ public class SignIn extends JPanel {
 		this.add(txtUser);
 		this.add(txtPassword);
 	}
-	
-	//METODO DE EVENTO DE FOCUS PARA PASSWORD **EXCLUSIVO PARA ESTE JTEXTFIELD**
+	/**
+	 * METODO DE EVENTO DE FOCUS PARA PASSWORD **EXCLUSIVO PARA ESTE JTEXTFIELD**
+	 * @param txtPassword - Parametro para estilo de insertar contraseña.
+	 */
 	private void focusEventPass (JPasswordField txtPassword) {
 		txtPassword.addFocusListener(new FocusListener () {
 			@Override
@@ -171,16 +176,20 @@ public class SignIn extends JPanel {
   		add(lbImagen5);
   		//add(lbInicio);
   	}
-  		
-  	//METODO PARA INSERTAR IMAGEN 
+  	/**
+  	 * METODO PARA INSERTAR IMAGEN
+  	 * @param label - Parametro para insertar la imagen.
+  	 * @param root - Parametro con la ruta.
+  	 */
   	private void SetImageLabel (JLabel label, String root){
-  		//ImageIcon image = new ImageIcon (root);
-  		//Icon icon = new ImageIcon (image.getImage().getScaledInstance(label.getWidth(),label.getHeight(),Image.SCALE_DEFAULT));
   		label.setIcon(new Imagens(root,label.getWidth(),label.getHeight()).imagen());
   		this.repaint();
   	}
-
-    //METODO DE ICONO DE VER Y NO VER 
+  	/**
+  	 * METODO DE ICONO DE VER Y NO VER
+  	 * @param ver - Parametro con la imagen.
+  	 * @param validar_dato - Parametro con la validacion
+  	 */
     private void eventIconEyes (JLabel ver, boolean validar_dato){
         ver.addMouseListener(new MouseAdapter (){
             @Override
@@ -189,7 +198,11 @@ public class SignIn extends JPanel {
            }
         });
     } 
-   //METODO PARA QUITAR Y PONER LOS CARACTERES EN EL JPASSWORDFIELD **EXCLUSIVOS DE ESAS ETIQUETAS**         
+    /**
+     * METODO PARA QUITAR Y PONER LOS CARACTERES EN EL JPASSWORDFIELD **EXCLUSIVOS DE ESAS ETIQUETAS**
+     * @param txtPassword - Parametro para asignar: ocultar o ver contraseña. 
+     * @param validar - Parametro de validacion.
+     */
    public void desbloqueaField (JPasswordField txtPassword, boolean validar){    
 	   if (validar){
          txtPassword.setEchoChar('\0');
@@ -203,7 +216,6 @@ public class SignIn extends JPanel {
        }
    }
   		 
-  	//METODO PARA EL BOTON
   	private void setBotonIngresar () {
   		btnIngresar = new JButton ("Ingresar");
   		Details button = new Details ();
@@ -220,8 +232,6 @@ public class SignIn extends JPanel {
         lbHiperVinculo.setFont(new Font ("Arial", Font.BOLD, 14));
         lbHiperVinculo.setForeground(new Color(153,153,153));
         lbHiperVinculo.setText(etiqueta);
-        //lbHiperVinculo.addMouseListener(null);
-        //etiquetaEvent (lbHiperVinculo);
         this.add(lbHiperVinculo);
     }
 	public JTextField getJtfUser() {
@@ -236,39 +246,5 @@ public class SignIn extends JPanel {
 	public JButton getJBInit() {
 		return btnIngresar;
 	}
-	/*public void etiquetaEvent (JLabel label) {
-        label.addMouseListener(new MouseAdapter() {
-           @Override
-           public void mouseClicked (MouseEvent e) {
-
-        	 showPanel(register);
-        	   
-           }	
-           @Override
-           public void mouseEntered(MouseEvent e) {
-        	   label.setForeground(new Color(255, 87, 51));
-           	}
-           @Override
-           public void mouseExited(MouseEvent e) {	
-               label.setForeground(new Color(153,153,153));
-           }
-       });
-	}*/
-	/*public void showPanel(JPanel p){
-		//this.setLayout(null);
-		p.setBounds(0, 0, 900, 600);
-		this.removeAll();
-		this.add(p);
-		this.revalidate();
-		this.repaint();
-	}*/
-
-  	//METODO QUE ESTABLECE EL FONDO AL PANEL
-  	/*public void paint (Graphics g) {
-  		imagen = new ImageIcon (getc"C:\\Users\\HomeWork\\OneDrive\\tareas de asbel\\JAVA\\Proyecto-JAVA\\img\\fondoblack.jpg");
-  		g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
-  		this.setOpaque(false);
-  		super.paint(g);
-  	}*/
 
 }

@@ -2,12 +2,13 @@ package loginGUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import details.*;
 import events.*;
+/**
+ * Clase con la interfaz de registro
+ */
 @SuppressWarnings("serial")
 public class Register extends JPanel {
 	protected JLabel name, lastName, user, password, saldoIni, warning;

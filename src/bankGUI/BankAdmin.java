@@ -5,6 +5,10 @@ import details.*;
 import events.*;
 import logic.*;
 import loginGUI.*;
+/**
+ * Clase que muestra la parte administrativa del banco, al a ver iniciado sesion.
+ * Se puede crear, modificar y borrar cuentas utilizables para comprar productos. 
+ */
 public class BankAdmin extends Register{
 	private JButton jbAdd,jbEdit,jbModify,jbDelet,jbClean;
 	public JPanel panel1,panel2;
